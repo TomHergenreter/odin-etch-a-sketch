@@ -1,0 +1,17 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    width: 600px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.grid-test {
+    /* width: 10px; */
+    /* height: 10px; */
+    border: 1px solid black;
+}
