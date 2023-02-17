@@ -1,3 +1,9 @@
+const paintColor = '#000000'
+const colorRandom = document.querySelector('#colorBlackButton');
+const colorBlack = document.querySelector('#colorRandomButton')
+colorBlack.addEventListener('click', setPaintColor);
+colorRandom.addEventListener('click', setPaintColor);
+
 
 function getGridSize() {
     const gridSize = prompt('Enter grid size');
@@ -15,19 +21,28 @@ function createGrid(gridSize) {
     for (let i = 0; i < (gridSize * gridSize); i++){
         const gridItem = document.createElement('div');
         gridItem.classList.add('grid-test');
-        gridItem.addEventListener('mouseover', paintGridItem);
+        gridItem.addEventListener('click', paintGridItem);
+        gridItem.addEventListener('mousemove', paintGridItem);
         gridContainer.append(gridItem);
     };
 }
 
+function setPaintColor(event) {
+    const color = event.target.getAttribute('data-color')
+    console.log(color);
+}
+
 function paintGridItem (event){
-    console.log('it works');
-    event.target.style.backgroundColor = 'blue';
+    if (event.type === 'click'){
+        event.target.style.backgroundColor = '#000000';
+    } else if(event.type === 'mousemove' && event.buttons === 1){
+        event.target.style.backgroundColor = '#000000';
+    } 
 }
 
 function initialize() {
-const gridSize = getGridSize();
-createGrid(gridSize);
+    const gridSize = getGridSize();
+    createGrid(gridSize);
 }
 
 initialize();
