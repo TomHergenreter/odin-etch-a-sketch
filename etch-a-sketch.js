@@ -1,5 +1,7 @@
 const colorRandom = document.querySelector('#colorBlackButton');
 const colorBlack = document.querySelector('#colorRandomButton')
+const erase = document.querySelector('#erase');
+erase.addEventListener('click', eraseColor);
 colorBlack.addEventListener('click', setPaintColor);
 colorRandom.addEventListener('click', setPaintColor);
 let paintColor = '#000000'
@@ -48,6 +50,15 @@ function paintGridItem (event){
 function getRandomColor(){
     var randomColor = Math.floor(Math.random()*16777215).toString(16);
     return randomColor;
+}
+
+function eraseColor (){
+    const gridItems = document.querySelector('.grid-container').children;
+    for(const item of gridItems){
+        item.style.backgroundColor = '#ffffff';
+    }
+    console.log(typeof(gridItems));
+    // ...gridItems.style.backgroundColor = '#ffffff';
 }
 
 function initialize() {
