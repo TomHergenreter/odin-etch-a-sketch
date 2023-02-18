@@ -1,19 +1,25 @@
 const colorRandom = document.querySelector('#colorBlackButton');
 const colorBlack = document.querySelector('#colorRandomButton')
-const erase = document.querySelector('#erase');
-erase.addEventListener('click', eraseColor);
+const erase = document.querySelector('#clear');
+const eraser = document.querySelector('#eraser');
+const gridSlider = document.querySelector('#gridSlider');
 colorBlack.addEventListener('click', setPaintColor);
 colorRandom.addEventListener('click', setPaintColor);
+erase.addEventListener('click', eraseColor);
+eraser.addEventListener('click', setPaintColor);
+gridSlider.addEventListener('mouseup', setGridSize);
 let paintColor = '#000000'
 
-function getGridSize() {
-    const gridSize = prompt('Enter grid size');
-    console.log(gridSize);
-    return gridSize;
+function setGridSize(e) {
+    gridSize = e.target.value;
+    return createGrid(gridSize);
 }
 
 function createGrid(gridSize) {
     const gridContainer = document.querySelector('.grid-container');
+    gridContainer.hasChildNodes ? gridContainer.replaceChildren() : contine();
+    gridContainer.addEventListener('click', paintGridItem);
+    gridContainer.addEventListener('mousemove', paintGridItem);
     const gridItemWidth = gridContainer.offsetWidth / gridSize;
     gridContainer.style.cssText = `
         grid-template-rows: repeat(${gridSize}, ${gridItemWidth}px); 
@@ -22,8 +28,6 @@ function createGrid(gridSize) {
     for (let i = 0; i < (gridSize * gridSize); i++){
         const gridItem = document.createElement('div');
         gridItem.classList.add('grid-item');
-        gridItem.addEventListener('click', paintGridItem);
-        gridItem.addEventListener('mousemove', paintGridItem);
         gridContainer.append(gridItem);
     };
 }
@@ -34,6 +38,8 @@ function setPaintColor(event) {
         case 'black' : paintColor = '#000000';
         break;
         case 'random' : paintColor = `#${getRandomColor()}`;
+        break;
+        case 'eraser' : paintColor = '#ffffff';
         break;
     }
     console.log(color);
@@ -57,12 +63,10 @@ function eraseColor (){
     for(const item of gridItems){
         item.style.backgroundColor = '#ffffff';
     }
-    console.log(typeof(gridItems));
-    // ...gridItems.style.backgroundColor = '#ffffff';
 }
 
 function initialize() {
-    const gridSize = getGridSize();
+    const gridSize = 20;
     createGrid(gridSize);
 }
 

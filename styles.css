@@ -11,6 +11,7 @@
 }
 
 .grid-item {
+    background-color: #ffffff;
     border: 1px solid black;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
