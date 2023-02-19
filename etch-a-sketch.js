@@ -9,6 +9,7 @@ erase.addEventListener('click', eraseColor);
 eraser.addEventListener('click', setPaintColor);
 gridSlider.addEventListener('mouseup', setGridSize);
 let paintColor = '#000000'
+let randomColorIndicator = false;
 
 function setGridSize(e) {
     gridSize = e.target.value;
@@ -19,7 +20,7 @@ function createGrid(gridSize) {
     const gridContainer = document.querySelector('.grid-container');
     gridContainer.hasChildNodes ? gridContainer.replaceChildren() : contine();
     gridContainer.addEventListener('click', paintGridItem);
-    gridContainer.addEventListener('mousemove', paintGridItem);
+    gridContainer.addEventListener('mouseover', paintGridItem);
     const gridItemWidth = gridContainer.offsetWidth / gridSize;
     gridContainer.style.cssText = `
         grid-template-rows: repeat(${gridSize}, ${gridItemWidth}px); 
@@ -37,7 +38,7 @@ function setPaintColor(event) {
     switch (color) {
         case 'black' : paintColor = '#000000';
         break;
-        case 'random' : paintColor = `#${getRandomColor()}`;
+        case 'random' : randomColorIndicator = true;
         break;
         case 'eraser' : paintColor = '#ffffff';
         break;
@@ -46,15 +47,23 @@ function setPaintColor(event) {
 }
 
 function paintGridItem (event){
+    if (randomColorIndicator === true){
+        paintColor = `#${getRandomColor()}`;
+    }
     if (event.type === 'click'){
         event.target.style.backgroundColor = paintColor;
-    } else if(event.type === 'mousemove' && event.buttons === 1){
+    } else if(event.type === 'mouseover' && event.buttons === 1){
         event.target.style.backgroundColor = paintColor;
-    } 
+    }
 }
 
 function getRandomColor(){
-    var randomColor = Math.floor(Math.random()*16777215).toString(16);
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    if (randomColor.length !== 6){
+         for(let i = randomColor.length; i < 6; i++){
+            randomColor += '0';
+         }
+    }
     return randomColor;
 }
 
