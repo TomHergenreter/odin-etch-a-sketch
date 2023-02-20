@@ -3,11 +3,13 @@ const colorBlack = document.querySelector('#colorRandomButton')
 const erase = document.querySelector('#clear');
 const eraser = document.querySelector('#eraser');
 const gridSlider = document.querySelector('#gridSlider');
+const darken = document.querySelector('#darkenButton');
 colorBlack.addEventListener('click', setPaintColor);
 colorRandom.addEventListener('click', setPaintColor);
 erase.addEventListener('click', eraseColor);
 eraser.addEventListener('click', setPaintColor);
 gridSlider.addEventListener('mouseup', setGridSize);
+darken.addEventListener('click', setPaintColor);
 let paintColor = '#000000'
 let randomColorIndicator = false;
 
@@ -42,6 +44,7 @@ function setPaintColor(event) {
         break;
         case 'eraser' : paintColor = '#ffffff';
         break;
+        case 'darken' : paintColor
     }
     console.log(color);
 }
