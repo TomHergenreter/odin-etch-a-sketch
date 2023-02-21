@@ -6,7 +6,7 @@
 //modulo number by 16
 
 
-let hexColor = 'ff1122';
+let hexColor = 'a9a9a9';
 let hexLetterToNumber = {
     a:10,
     b:11,
@@ -18,7 +18,7 @@ let hexLetterToNumber = {
 console.log(...hexColor);
 
 function hexToDecimal(hexNumber) {
-    hexNumberArray = [...hexNumber];
+    let hexNumberArray = [...hexNumber];
     for (const digit in hexNumberArray){
         let value = hexNumberArray[digit];
         if (!isFinite(value)){
@@ -29,24 +29,19 @@ function hexToDecimal(hexNumber) {
         }else{
             hexNumberArray[digit] = parseInt(value);
         }
-    }    
-    console.log(hexNumberArray);
+    }
+    let splitHexArray = [];
+    (hexNumberArray.length > 0)
+    for (let i = 0; i < hexNumberArray.length; i += 2){
+       splitHexArray.push(hexNumberArray.slice(i, i+2));
+    }
+    console.log(splitHexArray);
+    return splitHexArray;
+    
 }
 
-function convertToRGB(hexColor){
-    let hexColorValues = [];
-    for(let i = 0; i < 6; i += 2){
-        hexColorValues.push(hexColor.slice(i, i + 2));
-    }
-    for(let colorValue of hexColorValues){
-        let value1 = parseInt(colorValue[0]);
-        let value2 = parseInt(colorValue[1]);
-        console.log(value1, value2);
-        // colorValue = (value * 16) + value2;
-    }
-}
 
-// convertToRGB(hexColor);
+// colorValue = (value * 16) + value2;
 hexToDecimal(hexColor);
 
 
