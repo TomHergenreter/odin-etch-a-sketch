@@ -1,5 +1,7 @@
+import {hexToDecimal, decimalToRGB, darkenRGB} from './modules/darkenHex.js';
+console.log(hexToDecimal('ff00ff'));
 const colorRandom = document.querySelector('#colorBlackButton');
-const colorBlack = document.querySelector('#colorRandomButton')
+const colorBlack = document.querySelector('#colorRandomButton');
 const erase = document.querySelector('#clear');
 const eraser = document.querySelector('#eraser');
 const gridSlider = document.querySelector('#gridSlider');
@@ -10,7 +12,7 @@ erase.addEventListener('click', eraseColor);
 eraser.addEventListener('click', setPaintColor);
 gridSlider.addEventListener('mouseup', setGridSize);
 darken.addEventListener('click', setPaintColor);
-let paintColor = '#000000'
+let paintColor = '#000000';
 let randomColorIndicator = false;
 
 function setGridSize(e) {
@@ -38,11 +40,11 @@ function createGrid(gridSize) {
 function setPaintColor(event) {
     const color = event.target.getAttribute('data-color');
     switch (color) {
-        case 'black' : paintColor = '#000000';
+        case 'black' : paintColor = '#000000'; randomColorIndicator = false;
         break;
         case 'random' : randomColorIndicator = true;
         break;
-        case 'eraser' : paintColor = '#ffffff';
+        case 'eraser' : paintColor = '#ffffff'; randomColorIndicator = false;
         break;
         case 'darken' : paintColor
     }
