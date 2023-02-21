@@ -1,5 +1,6 @@
-import {hexToDecimal, decimalToRGB, darkenRGB, darkenHex} from './modules/darkenHex.js';
-// hexToDecimal('e600e6');
+import {darkenHex} from './modules/darkenHex.js';
+
+//set variables and event listeners
 const colorRandom = document.querySelector('#colorBlackButton');
 const colorBlack = document.querySelector('#colorRandomButton');
 const erase = document.querySelector('#clear');
@@ -16,11 +17,13 @@ let paintColor = '#000000';
 let randomColorIndicator = false;
 let darkenColorIndicator = false;
 
+//set grid size based on slider input
 function setGridSize(e) {
-    gridSize = e.target.value;
+    const gridSize = e.target.value;
     return createGrid(gridSize);
 }
 
+//create grid with each grid item with listener triggering paintGridItem event
 function createGrid(gridSize) {
     const gridContainer = document.querySelector('.grid-container');
     gridContainer.hasChildNodes ? gridContainer.replaceChildren() : contine();
@@ -38,6 +41,7 @@ function createGrid(gridSize) {
     };
 }
 
+//get color from html data-color atribute on selection buttons
 function setPaintColor(event) {
     randomColorIndicator = false;
     darkenColorIndicator = false;
@@ -54,13 +58,13 @@ function setPaintColor(event) {
     console.log(color);
 }
 
+//paint grid item based on idicator status, call darkenHex module if darken
 function paintGridItem (event){
-    console.log(paintColor);
+    console.log(event.target);
     if (randomColorIndicator === true){
         paintColor = `#${getRandomColor()}`;
     }else if(darkenColorIndicator === true){
         paintColor = darkenHex(event.target.style.backgroundColor);
-        console.log(paintColor);
     }
     if (event.type === 'click'){
         event.target.style.backgroundColor = paintColor;
@@ -69,6 +73,7 @@ function paintGridItem (event){
     }
 }
 
+//Random hex color generator
 function getRandomColor(){
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
     if (randomColor.length !== 6){
@@ -79,6 +84,7 @@ function getRandomColor(){
     return randomColor;
 }
 
+//clear entire grid
 function eraseColor (){
     const gridItems = document.querySelector('.grid-container').children;
     for(const item of gridItems){
@@ -86,6 +92,7 @@ function eraseColor (){
     }
 }
 
+//start-up
 function initialize() {
     const gridSize = 20;
     createGrid(gridSize);

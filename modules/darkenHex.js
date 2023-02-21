@@ -69,6 +69,7 @@ export function darkenRGB(RGBArray){
     return darkenedHex;
 }
 
+//called from main js, check if RGB or hex value and call correct function
 export function darkenHex(value){
     if (value.charAt(0) === 'r'){
         let parsedValue = value.replaceAll(/rgb|\(|\)| | /g, '');
