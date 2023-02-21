@@ -3,12 +3,14 @@ import {darkenHex} from './modules/darkenHex.js';
 //set variables and event listeners
 const colorRandom = document.querySelector('#colorBlackButton');
 const colorBlack = document.querySelector('#colorRandomButton');
+const colorPicker = document.querySelector('#colorPicker');
 const erase = document.querySelector('#clear');
 const eraser = document.querySelector('#eraser');
 const gridSlider = document.querySelector('#gridSlider');
 const darken = document.querySelector('#darkenButton');
 colorBlack.addEventListener('click', setPaintColor);
 colorRandom.addEventListener('click', setPaintColor);
+colorPicker.addEventListener('input', setPaintColor, false);
 erase.addEventListener('click', eraseColor);
 eraser.addEventListener('click', setPaintColor);
 gridSlider.addEventListener('mouseup', setGridSize);
@@ -50,6 +52,8 @@ function setPaintColor(event) {
         case 'black' : paintColor = '#000000';
         break;
         case 'random' : randomColorIndicator = true;
+        break;
+        case 'choose' : paintColor = event.target.value;
         break;
         case 'eraser' : paintColor = '#ffffff'; 
         break;

@@ -13,19 +13,23 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div class="grid-container">
-            
+        <div class="flex-container">
+            <div class="grid-container">
+                
+            </div>
+            <div id="button-container">
+                <button id="colorBlackButton" data-color="black">Black</button>
+                <label for="colorPicker">Pick Color</label>
+                <input id="colorPicker" type="color" data-color="choose">
+                <button id="colorRandomButton" data-color="random">Random</button>
+                <button id="darkenButton" data-color="darken">Darken</button>
+                <button id="eraser" data-color="eraser">Eraser</button>
+                <button id="clear">Clear</button>
+                <div class="slidecontainer">
+                    <input type="range" min="2" max="100" value="20" step="2" class="slider" id="gridSlider">
+                </div>
+            </div>  
+            <script src="etch-a-sketch.js" type="module" async defer></script>
         </div>
-        <div id="button-container">
-            <button id="colorBlackButton" data-color="black">Black</button>
-            <button id="colorRandomButton" data-color="random">Random</button>
-            <button id="eraser" data-color="eraser">Eraser</button>
-            <button id="clear">Clear</button>
-            <button id="darkenButton" data-color="darken">Darken</button>
-            <div class="slidecontainer">
-                <input type="range" min="2" max="100" value="20" step="2" class="slider" id="gridSlider">
-              </div>
-        </div>  
-        <script src="etch-a-sketch.js" type="module" async defer></script>
     </body>
 </html>

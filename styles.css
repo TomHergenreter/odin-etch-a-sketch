@@ -3,11 +3,17 @@
     box-sizing: border-box;
 }
 
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .grid-container {
     display: grid;
     width: 600px;
     border: .5px solid black;
-    margin: 0 auto;
+    margin: 20px auto 0px auto;
 }
 
 .grid-item {
@@ -20,4 +26,15 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+#button-container > * {
+    margin: 5px;
 }
