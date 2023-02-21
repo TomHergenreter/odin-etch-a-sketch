@@ -1,5 +1,5 @@
-import {hexToDecimal, decimalToRGB, darkenRGB} from './modules/darkenHex.js';
-console.log(hexToDecimal('ff00ff'));
+import {hexToDecimal, decimalToRGB, darkenRGB, darkenHex} from './modules/darkenHex.js';
+// hexToDecimal('e600e6');
 const colorRandom = document.querySelector('#colorBlackButton');
 const colorBlack = document.querySelector('#colorRandomButton');
 const erase = document.querySelector('#clear');
@@ -14,6 +14,7 @@ gridSlider.addEventListener('mouseup', setGridSize);
 darken.addEventListener('click', setPaintColor);
 let paintColor = '#000000';
 let randomColorIndicator = false;
+let darkenColorIndicator = false;
 
 function setGridSize(e) {
     gridSize = e.target.value;
@@ -38,15 +39,17 @@ function createGrid(gridSize) {
 }
 
 function setPaintColor(event) {
+    randomColorIndicator = false;
+    darkenColorIndicator = false;
     const color = event.target.getAttribute('data-color');
     switch (color) {
-        case 'black' : paintColor = '#000000'; randomColorIndicator = false;
+        case 'black' : paintColor = '#000000';
         break;
         case 'random' : randomColorIndicator = true;
         break;
-        case 'eraser' : paintColor = '#ffffff'; randomColorIndicator = false;
+        case 'eraser' : paintColor = '#ffffff'; 
         break;
-        case 'darken' : paintColor
+        case 'darken' : darkenColorIndicator = true;
     }
     console.log(color);
 }
@@ -54,6 +57,8 @@ function setPaintColor(event) {
 function paintGridItem (event){
     if (randomColorIndicator === true){
         paintColor = `#${getRandomColor()}`;
+    }else if(darkenColorIndicator === true){
+        paintColor = `${darkenHex(event.target.style.backgroundColor)}`
     }
     if (event.type === 'click'){
         event.target.style.backgroundColor = paintColor;

@@ -1,5 +1,4 @@
 
-let hexColor = '50068f';
 let hexLetterToNumber = {
     a:10,
     b:11,
@@ -49,6 +48,7 @@ export function decimalToRGB(splitHexArray){
 
 //darken rgb values, set to zero if number is negative, convert and return hex code
 export function darkenRGB(RGBArray){
+    console.log(RGBArray);
     let darkenedRGB = [];
     let darkenedHex = '#';
     for (const colorValue of RGBArray){
@@ -63,11 +63,22 @@ export function darkenRGB(RGBArray){
     for (const value of darkenedRGB){
         let hexValue2 = value % 16;
         let hexValue1 = (value - hexValue2) / 16;
-        darkenedHex += `${hexValue1}${hexValue2}`; 
+        darkenedHex += `${hexValue1.toString(16)}${hexValue2.toString(16)}`; 
     }
     console.log(`RGB darkened by 10% ${darkenedRGB}`);
     console.log(`Hex darkened by 10% ${darkenedHex}`);
     return darkenedHex;
+}
+
+export function darkenHex(value){
+    if (value.charAt(0) === 'r'){
+        let parsedValue = value.replaceAll(/rgb|\(|\)| | /g, '');
+        let RGBArray = parsedValue.split(',');
+        console.log(RGBArray);
+        darkenRGB(RGBArray);
+    }else{
+        hexToDecimal(value);
+    }
 }
 
 
