@@ -48,7 +48,6 @@ export function decimalToRGB(splitHexArray){
 
 //darken rgb values, set to zero if number is negative, convert and return hex code
 export function darkenRGB(RGBArray){
-    console.log(RGBArray);
     let darkenedRGB = [];
     let darkenedHex = '#';
     for (const colorValue of RGBArray){
@@ -74,8 +73,7 @@ export function darkenHex(value){
     if (value.charAt(0) === 'r'){
         let parsedValue = value.replaceAll(/rgb|\(|\)| | /g, '');
         let RGBArray = parsedValue.split(',');
-        console.log(RGBArray);
-        darkenRGB(RGBArray);
+        return darkenRGB(RGBArray);
     }else{
         hexToDecimal(value);
     }

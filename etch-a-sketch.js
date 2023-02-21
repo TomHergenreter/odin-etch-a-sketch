@@ -55,10 +55,12 @@ function setPaintColor(event) {
 }
 
 function paintGridItem (event){
+    console.log(paintColor);
     if (randomColorIndicator === true){
         paintColor = `#${getRandomColor()}`;
     }else if(darkenColorIndicator === true){
-        paintColor = `${darkenHex(event.target.style.backgroundColor)}`
+        paintColor = darkenHex(event.target.style.backgroundColor);
+        console.log(paintColor);
     }
     if (event.type === 'click'){
         event.target.style.backgroundColor = paintColor;
