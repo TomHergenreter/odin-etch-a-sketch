@@ -21,8 +21,13 @@ let darkenColorIndicator = false;
 
 //set grid size based on slider input
 function setGridSize(e) {
-    const gridSize = e.target.value;
-    return createGrid(gridSize);
+    let gridSize = + e.target.value;
+    if (gridSize % 2 === 1){
+        return createGrid(gridSize);  
+    }else{
+        gridSize += 1;
+        return createGrid(gridSize);
+    };
 }
 
 //create grid with each grid item with listener triggering paintGridItem event
