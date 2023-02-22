@@ -14,9 +14,6 @@
     </head>
     <body>
         <div class="flex-container">
-            <div class="grid-container">
-                
-            </div>
             <div id="button-container">
                 <button id="colorBlackButton" data-color="black">Black</button>
                 <label for="colorPicker">Pick Color</label>
@@ -26,8 +23,10 @@
                 <button id="eraser" data-color="eraser">Eraser</button>
                 <button id="clear">Clear</button>
                 <div class="slidecontainer">
-                    <input type="range" min="2" max="100" value="20" step="2" class="slider" id="gridSlider">
+                    <input type="range" orient="vertical" min="2" max="100" value="20" step="2" class="slider" id="gridSlider">
                 </div>
+            </div>
+            <div class="grid-container">  
             </div>  
             <script src="etch-a-sketch.js" type="module" async defer></script>
         </div>

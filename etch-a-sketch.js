@@ -34,7 +34,7 @@ function createGrid(gridSize) {
     const gridItemWidth = gridContainer.offsetWidth / gridSize;
     gridContainer.style.cssText = `
         grid-template-rows: repeat(${gridSize}, ${gridItemWidth}px); 
-        grid-template-columns: repeat(${gridSize}, ${gridItemWidth}px
+        grid-template-columns: repeat(${gridSize}, ${gridItemWidth}px);
     `;
     for (let i = 0; i < (gridSize * gridSize); i++){
         const gridItem = document.createElement('div');
@@ -59,12 +59,10 @@ function setPaintColor(event) {
         break;
         case 'darken' : darkenColorIndicator = true;
     }
-    console.log(color);
 }
 
 //paint grid item based on idicator status, call darkenHex module if darken
 function paintGridItem (event){
-    console.log(event.target);
     if (randomColorIndicator === true){
         paintColor = `#${getRandomColor()}`;
     }else if(darkenColorIndicator === true){
