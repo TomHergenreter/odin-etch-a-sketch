@@ -101,7 +101,7 @@ function eraseColor (){
 
 //start-up
 function initialize() {
-    const gridSize = 20;
+    const gridSize = 25;
     createGrid(gridSize);
 }
 
