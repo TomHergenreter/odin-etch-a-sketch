@@ -1,6 +1,7 @@
 import {darkenHex} from './modules/darkenHex.js';
 
 //set variables and event listeners
+const gridContainer = document.querySelector('.grid-container');
 const colorRandom = document.querySelector('#colorBlackButton');
 const colorBlack = document.querySelector('#colorRandomButton');
 const colorPicker = document.querySelector('#colorPicker');
@@ -11,6 +12,7 @@ const darken = document.querySelector('#darkenButton');
 colorBlack.addEventListener('click', setPaintColor);
 colorRandom.addEventListener('click', setPaintColor);
 colorPicker.addEventListener('input', setPaintColor, false);
+colorPicker.addEventListener('input', displayColor, false);
 erase.addEventListener('click', eraseColor);
 eraser.addEventListener('click', setPaintColor);
 gridSlider.addEventListener('mouseup', setGridSize);
@@ -32,7 +34,6 @@ function setGridSize(e) {
 
 //create grid with each grid item with listener triggering paintGridItem event
 function createGrid(gridSize) {
-    const gridContainer = document.querySelector('.grid-container');
     gridContainer.hasChildNodes ? gridContainer.replaceChildren() : contine();
     gridContainer.addEventListener('click', paintGridItem);
     gridContainer.addEventListener('mouseover', paintGridItem);
@@ -91,12 +92,14 @@ function getRandomColor(){
     return randomColor;
 }
 
+function displayColor(e){
+    document.querySelector('#currentColor').innerHTML = e.target.value;
+}
+
 //clear entire grid
 function eraseColor (){
-    const gridItems = document.querySelector('.grid-container').children;
-    for(const item of gridItems){
-        item.style.backgroundColor = '#ffffff';
-    }
+    let gridSize = gridSlider.value;
+    createGrid(gridSize); 
 }
 
 //start-up
