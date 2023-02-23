@@ -96,15 +96,23 @@ function displayColor(e){
     document.querySelector('#currentColor').innerHTML = e.target.value;
 }
 
-//clear entire grid
-function eraseColor (){
-    let gridSize = gridSlider.value;
-    createGrid(gridSize); 
+//generate new grid on clear
+function eraseColor(){
+    let gridSize = +gridSlider.value;
+    console.log(gridSize);
+    if (gridSize % 2 === 1){
+        console.log(gridSize);
+        createGrid(gridSize);  
+    }else{
+        gridSize += 1;
+        console.log(gridSize);
+        createGrid(gridSize);
+    };
 }
 
 //start-up
 function initialize() {
-    const gridSize = 25;
+    const gridSize = 45;
     createGrid(gridSize);
 }
 
