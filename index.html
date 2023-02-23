@@ -19,18 +19,22 @@
         </header>
         <div class="flex-container">
             <div id="button-container">
-                <label for="colorPicker">Pick Color</label>
-                <input id="colorPicker" type="color" data-color="choose">
+                <div class="color-container">
+                    <input id="colorPicker" type="color" data-color="choose">
+                    <p id="currentCollor"></p>
+                </div>
                 <button id="colorBlackButton" data-color="black">Black</button>
                 <button id="colorRandomButton" data-color="random">Random</button>
                 <button id="darkenButton" data-color="darken">Darken</button>
                 <button id="eraser" data-color="eraser">Eraser</button>
                 <button id="clear">Clear</button>
                 <div class="slidecontainer">
-                    <input type="range" orient="vertical" min="4" max="99" value="25" step="1" class="slider" id="gridSlider">
+                    <input type="range" min="4" max="99" value="25" step="1" class="slider" id="gridSlider">
                 </div>
             </div>
-            <div class="grid-container">  
+            <div class="canvas-wrapper">
+                <div class="grid-container">
+                </div>
             </div>   
         </div>
         <script src="etch-a-sketch.js" type="module" async defer></script>
