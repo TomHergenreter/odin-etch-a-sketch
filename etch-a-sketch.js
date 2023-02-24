@@ -130,4 +130,4 @@ function initialize() {
     createGrid(gridSize);
 }
 
-document.addEventListener('DOMContentLoaded', initialize);
+document.addEventListener('DOMContentLoaded', initialize());
