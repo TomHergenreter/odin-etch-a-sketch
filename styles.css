@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 * {
     box-sizing: border-box;
@@ -7,43 +7,36 @@
 body {
     height: 100vh;
     margin: 0;
-    background-color: #d1d1d1;
+    background-color: #c5c3c3;
 }
 
-header {
-    background-color: #35353a;
+header{
+    margin: 60px auto 0 auto;
     display: flex;
-    padding-bottom: 10px;
-    justify-content: center;
+    padding: 10px;
+    width: 850px;
+    justify-content: flex-start;
     align-items: center;
 }
 
 h1 {
     display: inline-block;
-    width: 500px;
-    margin: 0;
-    padding-left: 32px;
-    font-size: 3em;
-    font-family: 'IBM Plex Sans', sans-serif;
-    color: #ebebeb;
-    text-shadow: -2px 2px 0px #06cb7f,
-                 -4px 4px 0px hsl(157, 94%, 25%);
+    margin: 0 10px 0 0;
+    font-size: 3.6em;
+    text-transform: uppercase;
+    font-family: 'VT323', monospace;
+    color: #f0f0f0;
+    text-shadow: -2px 2px 0px hsl(240, 4%, 35%),
+                 -4px 4px 0px hsl(240, 5%, 15%);
 }
 
-.link {
-    font-family: 'IBM Plex Sans', sans-serif;
-    display: block;
-    width: 400px;
-    padding: 6px 15px;
-    text-align: center;
-    color: #06cb7f;
-    font-size: .9em;
-    align-self:flex-end;
-    text-align: right;
-}
-
-.link:visited {
-    color: #fff;
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    padding-top: 5px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #f0f0f0;
 }
 
 .github {
@@ -55,8 +48,8 @@ h1 {
 }
 
 .flex-container {
-    margin: 30px auto;
-    padding: 20px;
+    margin: 0 auto;
+    padding: 5px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -70,8 +63,8 @@ h1 {
     padding: 20px;
     display: flex;
     justify-content: center;
-    box-shadow: -2px 2px 0px #06cb7f,
-                 -4px 4px 0px hsl(157, 94%, 25%);
+    box-shadow: -4px 4px 0px #252528,
+                 -8px 8px 0px #131315;
 }
 
 .grid-container {
@@ -98,7 +91,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2em 2em 2em 2.5em;
+    padding: 1em 2em 1em 2.2em;
     position: relative;
     background-color: #35353a;
     margin-right: 20px;
@@ -115,12 +108,16 @@ h1 {
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
+    box-shadow: -4px 4px 0px #252528,
+                 -8px 8px 0px #131315;
 }
 
 .color-container p {
     margin: 0;
     padding: 3px 5px;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+    font-weight: 600;
     min-height: 30px;
 }
 
@@ -157,17 +154,17 @@ button {
     display: block;
     padding: 5px 30px;
     width: 120px;
-    position: relative;
-    background-color: transparent;
+    cursor: pointer;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 600;
+    background-color: #f0f0f0;
     border:2px solid #f0f0f0;
-    box-shadow: 0 0 0 1px rgb(86, 86, 86), 
-                0 0 0 2px black;
-    color: #06cb7f;
-    border-radius: 10px;
+    box-shadow: -4px 4px 0px #252528,
+                 -8px 8px 0px #131315;
 }
 
   button:active {
-    background-color: #45a293;
+    background-color: #e0e0e0;
     transform: translateY(2px);
   }
 
@@ -198,6 +195,7 @@ input[type="range"] {
     border-radius: 0.5rem;
     height: 1rem;
     width: 1rem;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 20%);
   }
   
   input[type="range"]:focus::-webkit-slider-thumb {
@@ -211,15 +209,45 @@ input[type="range"] {
   }
   
   input[type="range"]::-moz-range-thumb {
-    background-color:#06cb7f;
+    background-color:#959595;
     border: none;
     border-radius: 0.5rem;
     height: 1rem;
     width: 1rem;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 20%);
   }
   
   input[type="range"]:focus::-moz-range-thumb{
     outline: none;
   }
+
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 848px;
+  }
+
+  footer p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    display: block;
+    margin: 10px 0px;
+    padding: 6px;
+    color: #f0f0f0;
+    font-size: 14px;
+  }
+
+  .link{
+    font-family: 'IBM Plex Sans', sans-serif;
+    display: block;
+    padding: 6px;
+    color: #f0f0f0;
+    font-size: 14px;
+}
+
+.link:visited {
+    color: #ebebeb;
+}
 
 

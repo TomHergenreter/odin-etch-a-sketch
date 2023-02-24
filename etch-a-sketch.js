@@ -36,7 +36,7 @@ function setGridSize(e) {
 //create grid with each grid item with listener triggering paintGridItem event
 function createGrid(gridSize) {
     gridContainer.hasChildNodes ? gridContainer.replaceChildren() : contine();
-    gridContainer.addEventListener('click', paintGridItem);
+    gridContainer.addEventListener('mousedown', paintGridItem);
     gridContainer.addEventListener('mouseover', paintGridItem);
     const gridItemWidth = gridContainer.offsetWidth / gridSize;
     gridContainer.style.cssText = `
@@ -85,10 +85,14 @@ function paintGridItem (event){
             paintColor = '#d1d1d1';
         }
     }
-    if (event.type === 'click'){
+    if (event.type === 'mousedown'){
         event.target.style.backgroundColor = paintColor;
+        colorPicker.value = paintColor;
+        document.querySelector('#currentColor').innerHTML = paintColor;
     } else if(event.type === 'mouseover' && event.buttons === 1){
         event.target.style.backgroundColor = paintColor;
+        colorPicker.value = paintColor;
+        document.querySelector('#currentColor').innerHTML = paintColor;
     }
 }
 
