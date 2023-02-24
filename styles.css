@@ -28,7 +28,6 @@ h1 {
     color: #ebebeb;
     text-shadow: -2px 2px 0px #06cb7f,
                  -4px 4px 0px hsl(157, 94%, 25%);
-                 /* -9px 9px 0px hsl(157, 94%, 15%); */
 }
 
 .link {
@@ -71,7 +70,8 @@ h1 {
     padding: 20px;
     display: flex;
     justify-content: center;
-    border-radius: 20px; 
+    box-shadow: -2px 2px 0px #06cb7f,
+                 -4px 4px 0px hsl(157, 94%, 25%);
 }
 
 .grid-container {
@@ -102,7 +102,8 @@ h1 {
     position: relative;
     background-color: #35353a;
     margin-right: 20px;
-    border-radius: 20px;
+    box-shadow: -4px 4px 0px #252528,
+                 -8px 8px 0px #131315;
 }
 
 
@@ -158,8 +159,11 @@ button {
     width: 120px;
     position: relative;
     background-color: transparent;
-    border:2px solid #06cb7f;
+    border:2px solid #f0f0f0;
+    box-shadow: 0 0 0 1px rgb(86, 86, 86), 
+                0 0 0 2px black;
     color: #06cb7f;
+    border-radius: 10px;
 }
 
   button:active {

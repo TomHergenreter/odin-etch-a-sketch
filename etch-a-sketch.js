@@ -20,6 +20,7 @@ darken.addEventListener('click', setPaintColor);
 let paintColor = '#000000';
 let randomColorIndicator = false;
 let darkenColorIndicator = false;
+let eraserIndicator = false;
 
 //set grid size based on slider input
 function setGridSize(e) {
@@ -53,6 +54,7 @@ function createGrid(gridSize) {
 function setPaintColor(event) {
     randomColorIndicator = false;
     darkenColorIndicator = false;
+    eraserIndicator = false;
     const color = event.target.getAttribute('data-color');
     switch (color) {
         case 'black' : paintColor = '#000000';
@@ -61,7 +63,7 @@ function setPaintColor(event) {
         break;
         case 'choose' : paintColor = event.target.value;
         break;
-        case 'eraser' : paintColor = '#ffffff'; 
+        case 'eraser' : eraserIndicator = true; 
         break;
         case 'darken' : darkenColorIndicator = true;
     }
@@ -73,6 +75,15 @@ function paintGridItem (event){
         paintColor = `#${getRandomColor()}`;
     }else if(darkenColorIndicator === true){
         paintColor = darkenHex(event.target.style.backgroundColor);
+        console.log(event.target.style);
+    }
+    if(eraserIndicator === true) {
+        let nodeList = Array.from(event.target.parentNode.children);
+        if(nodeList.indexOf(event.target) % 2 === 1){
+            paintColor = '#ebebeb';
+        }else{
+            paintColor = '#d1d1d1';
+        }
     }
     if (event.type === 'click'){
         event.target.style.backgroundColor = paintColor;

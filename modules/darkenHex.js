@@ -27,7 +27,6 @@ export function hexToDecimal(hexNumber) {
     for (let i = 0; i < hexNumberArray.length; i += 2){
        splitHexArray.push(hexNumberArray.slice(i, i+2));
     }
-    console.log(`Hex value is: #${hexNumber}`);
     decimalToRGB(splitHexArray); 
 }
 
@@ -42,7 +41,6 @@ export function decimalToRGB(splitHexArray){
             RGBArray.push(value2);
         }
     }
-    console.log(`Hex converted to RGB: ${RGBArray}`);
     darkenRGB(RGBArray);
 }
 
@@ -64,8 +62,6 @@ export function darkenRGB(RGBArray){
         let hexValue1 = (value - hexValue2) / 16;
         darkenedHex += `${hexValue1.toString(16)}${hexValue2.toString(16)}`; 
     }
-    console.log(`RGB darkened by 10% ${darkenedRGB}`);
-    console.log(`Hex darkened by 10% ${darkenedHex}`);
     return darkenedHex;
 }
 
