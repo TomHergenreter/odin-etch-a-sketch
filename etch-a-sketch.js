@@ -17,7 +17,7 @@ erase.addEventListener('click', eraseColor);
 eraser.addEventListener('click', setPaintColor);
 gridSlider.addEventListener('mouseup', setGridSize);
 darken.addEventListener('click', setPaintColor);
-let paintColor = '#000000';
+let paintColor = colorPicker.getAttribute('value');
 let randomColorIndicator = false;
 let darkenColorIndicator = false;
 let eraserIndicator = false;
@@ -75,7 +75,6 @@ function paintGridItem (event){
         paintColor = `#${getRandomColor()}`;
     }else if(darkenColorIndicator === true){
         paintColor = darkenHex(event.target.style.backgroundColor);
-        console.log(event.target.style);
     }
     if(eraserIndicator === true) {
         let nodeList = Array.from(event.target.parentNode.children);
