@@ -1,5 +1,7 @@
 import {darkenHex} from './modules/darkenHex.js';
 
+window.addEventListener('load', initialize);
+
 //set variables and event listeners
 const gridContainer = document.querySelector('.grid-container');
 const colorRandom = document.querySelector('#colorBlackButton');
@@ -38,7 +40,9 @@ function createGrid(gridSize) {
     gridContainer.hasChildNodes ? gridContainer.replaceChildren() : contine();
     gridContainer.addEventListener('mousedown', paintGridItem);
     gridContainer.addEventListener('mouseover', paintGridItem);
+    console.log(gridContainer.offsetWidth);
     const gridItemWidth = gridContainer.offsetWidth / gridSize;
+    console.log(gridContainer.style.width)
     gridContainer.style.cssText = `
         grid-template-rows: repeat(${gridSize}, ${gridItemWidth}px); 
         grid-template-columns: repeat(${gridSize}, ${gridItemWidth}px);
@@ -129,5 +133,3 @@ function initialize() {
     const gridSize = 45;
     createGrid(gridSize);
 }
-
-document.addEventListener('DOMContentLoaded', initialize());
