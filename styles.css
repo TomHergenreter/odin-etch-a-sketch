@@ -11,7 +11,7 @@ body {
 }
 
 header{
-    margin: 50px auto 0 auto;
+    margin: 0 auto;
     display: flex;
     padding: 10px;
     width: 850px;
